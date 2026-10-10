@@ -113,7 +113,7 @@ offset_left = 571.0
 offset_top = 83.0
 offset_right = 780.20325
 offset_bottom = 408.0
-screen_name = "the_pit"
+screen_name = "desk"
 
 [connection signal="clicked" from="Door" to="." method="_on_zone_clicked"]
 [connection signal="mouseoff" from="Door" to="." method="_on_zone_mouseoff"]
