@@ -29,7 +29,8 @@ func _on_mouse_direction_mouseoff() -> void:
 	$Cursor.play("default")
 	
 func load_screen(screen_name: String, save_history: bool = true):
-	_on_mouse_direction_mouseoff()
+	if save_history or screen_history.size() == 0:
+		_on_mouse_direction_mouseoff()
 	if current_screen != null:
 		if save_history:
 			screen_history.push_back(current_screen_name)

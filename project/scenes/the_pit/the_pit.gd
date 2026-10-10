@@ -4,6 +4,7 @@ extends DefaultSceen
 func _ready() -> void:
 	if time != Helpers.Stage.Early:
 		background_animation_player.play("modulate")
+		$Dancers.set_modulate_timestamp(background_animation_player.current_animation_position)
 		Helpers.set_interval(
 			func ():
 				$Dancers.set_modulate_timestamp(background_animation_player.current_animation_position)
