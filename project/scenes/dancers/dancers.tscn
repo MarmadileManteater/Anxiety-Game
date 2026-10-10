@@ -333,9 +333,8 @@ script = ExtResource("1_s70bo")
 self_modulate = Color(0.21291032, 0.04955011, 0, 1)
 position = Vector2(489, 214)
 sprite_frames = SubResource("SpriteFrames_0dxmq")
-animation = &"mask"
 autoplay = "mask"
-frame_progress = 0.45959428
+frame_progress = 0.5138748
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="3" unique_id=1102771150]
 libraries/ = SubResource("AnimationLibrary_d4neo")
@@ -352,9 +351,8 @@ frame_progress = 0.43448958
 self_modulate = Color(0.21291032, 0.04955011, 0, 1)
 position = Vector2(462, 237)
 sprite_frames = SubResource("SpriteFrames_0dxmq")
-animation = &"mask"
 autoplay = "mask"
-frame_progress = 0.45959428
+frame_progress = 0.98608094
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="4" unique_id=1009430195]
 libraries/ = SubResource("AnimationLibrary_d4neo")
