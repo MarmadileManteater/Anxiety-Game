@@ -8,15 +8,18 @@ signal mouseoff
 signal zone_clicked
 signal button_pressed
 signal next_screen
+signal disable_cursor_change
+signal enable_cursor_change
+signal save_state
 
 #set by global scene
 var time: Helpers.Stage
+var state: GameState
 
 var background_animation_player: AnimationPlayer
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass
+	
+func save():
+	save_state.emit(state)
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:

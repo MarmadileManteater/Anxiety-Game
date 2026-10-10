@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://clhtxnt31sof1" path="res://assets/screens/outside.png" id="2_bnvo1"]
 [ext_resource type="Texture2D" uid="uid://bybma16sshihy" path="res://assets/sprites/objects/flame.png" id="3_qbnsr"]
 [ext_resource type="PackedScene" uid="uid://ckyxxwa5kygcv" path="res://scenes/text_box/text_box.tscn" id="4_7fvn1"]
+[ext_resource type="PackedScene" uid="uid://bp3qljsfgqwsw" path="res://scenes/click_zone/click_zone.tscn" id="5_7fvn1"]
 
 [sub_resource type="Animation" id="Animation_ile57"]
 length = 0.001
@@ -106,3 +107,14 @@ libraries/ = SubResource("AnimationLibrary_5i1aa")
 [node name="Dialog" parent="." unique_id=2128977019 instance=ExtResource("4_7fvn1")]
 position = Vector2(686, 617)
 text = PackedStringArray("fucking [b]jesus christ[/b]", "i am [i]shaking[/i]", "why am i like this", "i ASKED for this", "i WANTED to be here", "Come on, babe!\\nI wanna check this place out before the show starts!", ". . . ", "[color=#bbbbbb]I can do this.[/color]")
+
+[node name="Door" parent="." unique_id=624367828 instance=ExtResource("5_7fvn1")]
+offset_left = 571.0
+offset_top = 83.0
+offset_right = 780.20325
+offset_bottom = 408.0
+screen_name = "the_pit"
+
+[connection signal="clicked" from="Door" to="." method="_on_zone_clicked"]
+[connection signal="mouseoff" from="Door" to="." method="_on_zone_mouseoff"]
+[connection signal="mouseover" from="Door" to="." method="_on_zone_mouseover"]

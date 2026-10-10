@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://d203vtjs0csc2" path="res://scenes/the_pit/the_pit.gd" id="1_nhmyf"]
 [ext_resource type="PackedScene" uid="uid://btm8kv2ypw113" path="res://scenes/dancers/dancers.tscn" id="3_3cyfy"]
-[ext_resource type="PackedScene" uid="uid://ckyxxwa5kygcv" path="res://scenes/text_box/text_box.tscn" id="4_qbv4b"]
 
 [node name="ThePit" type="Node2D" unique_id=452296394]
 script = ExtResource("1_nhmyf")
@@ -10,7 +9,3 @@ metadata/_custom_type_script = "uid://vqxqihlbubu7"
 
 [node name="Dancers" parent="." unique_id=213943213 instance=ExtResource("3_3cyfy")]
 position = Vector2(106, 85)
-
-[node name="TextBox" parent="." unique_id=2128977019 instance=ExtResource("4_qbv4b")]
-position = Vector2(686, 617)
-text = PackedStringArray("fucking [b]jesus christ[/b]", "i am [i]shaking[/i]", "why am i like this", "i ASKED for this", "i WANTED to be here", "Come on, babe!\\nI wanna check this place out before the show starts!", ". . . ", "[color=#bbbbbb]I can do this.[/color]")
