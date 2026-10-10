@@ -27,18 +27,6 @@ func _ready() -> void:
 	label_animation_player = $Label/AnimationPlayer
 	title_sprite = $TitleSprite
 	title_label = $TitleSprite/Label
-	
-	Helpers.set_timeout(
-		func ():
-			display()
-	, 1, self)
-	line_started.connect(
-		func (index: int):
-			if index == 5:
-				set_title("joyfriend")
-			if index == 6:
-				clear_title()
-	)
 
 func display() -> void:
 	sprite.show()

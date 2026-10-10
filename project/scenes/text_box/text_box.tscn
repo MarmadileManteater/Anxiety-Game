@@ -1,0 +1,210 @@
+[gd_scene format=3 uid="uid://ckyxxwa5kygcv"]
+
+[ext_resource type="Script" uid="uid://cob82v76rbjs0" path="res://scenes/text_box/text_box.gd" id="1_um34n"]
+[ext_resource type="Texture2D" uid="uid://6iuxyyi7ngdj" path="res://assets/sprites/text-box/3.png" id="2_20bxf"]
+[ext_resource type="Texture2D" uid="uid://dh1ksghhhc5uq" path="res://assets/sprites/text-box/2.png" id="3_1tfoi"]
+[ext_resource type="Texture2D" uid="uid://6bfb20rrswnl" path="res://assets/sprites/text-box/1.png" id="4_lgus7"]
+[ext_resource type="Texture2D" uid="uid://yhd7a4o6fexe" path="res://assets/sprites/text-box/arrow.png" id="5_wg0r1"]
+[ext_resource type="Texture2D" uid="uid://c80n1i65rcgec" path="res://assets/sprites/text-box/title.png" id="6_o50fc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i54ly"]
+atlas = ExtResource("2_20bxf")
+region = Rect2(0, 0, 1298, 238)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ht0q6"]
+atlas = ExtResource("3_1tfoi")
+region = Rect2(0, 0, 1298, 238)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_orsvi"]
+atlas = ExtResource("4_lgus7")
+region = Rect2(0, 0, 1298, 238)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0dxmq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i54ly")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i54ly")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ht0q6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_orsvi")
+}],
+"loop": 0,
+"name": &"hide",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_orsvi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ht0q6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i54ly")
+}],
+"loop": 0,
+"name": &"show",
+"speed": 15.0
+}]
+
+[sub_resource type="Animation" id="Animation_i54ly"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-588, -77)]
+}
+
+[sub_resource type="Animation" id="Animation_xsnr3"]
+resource_name = "no_title"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-588, -77)]
+}
+
+[sub_resource type="Animation" id="Animation_syux3"]
+resource_name = "title"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-588, -65)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ntruc"]
+_data = {
+&"RESET": SubResource("Animation_i54ly"),
+&"no_title": SubResource("Animation_xsnr3"),
+&"title": SubResource("Animation_syux3")
+}
+
+[sub_resource type="Animation" id="Animation_orsvi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(586, 66)]
+}
+
+[sub_resource type="Animation" id="Animation_ht0q6"]
+resource_name = "bob"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2(586, 66), Vector2(586, 58), Vector2(586, 66)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i54ly"]
+_data = {
+&"RESET": SubResource("Animation_orsvi"),
+&"bob": SubResource("Animation_ht0q6")
+}
+
+[node name="TextBox" type="Node2D" unique_id=2128977019]
+script = ExtResource("1_um34n")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1439722699]
+visible = false
+sprite_frames = SubResource("SpriteFrames_0dxmq")
+animation = &"hide"
+
+[node name="Label" type="RichTextLabel" parent="." unique_id=1030613350]
+visible = false
+offset_left = -588.0
+offset_top = -77.0
+offset_right = 607.0
+offset_bottom = 76.0
+theme_override_font_sizes/normal_font_size = 37
+theme_override_font_sizes/bold_font_size = 37
+theme_override_font_sizes/bold_italics_font_size = 37
+theme_override_font_sizes/italics_font_size = 37
+theme_override_font_sizes/mono_font_size = 37
+bbcode_enabled = true
+scroll_active = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Label" unique_id=390125311]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_ntruc")
+
+[node name="Arrow" type="Sprite2D" parent="." unique_id=1547876363]
+visible = false
+position = Vector2(586, 66)
+texture = ExtResource("5_wg0r1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Arrow" unique_id=438941582]
+libraries/ = SubResource("AnimationLibrary_i54ly")
+autoplay = &"bob"
+
+[node name="TitleSprite" type="Sprite2D" parent="." unique_id=1142455942]
+visible = false
+position = Vector2(-447, -112)
+texture = ExtResource("6_o50fc")
+
+[node name="Label" type="RichTextLabel" parent="TitleSprite" unique_id=661406347]
+offset_left = -150.0
+offset_top = -32.0
+offset_right = 152.0
+offset_bottom = 27.0
+rotation = 0.034906585
+theme_override_font_sizes/normal_font_size = 34
+theme_override_font_sizes/bold_font_size = 34
+theme_override_font_sizes/bold_italics_font_size = 34
+theme_override_font_sizes/italics_font_size = 34
+theme_override_font_sizes/mono_font_size = 34
+bbcode_enabled = true
+text = "some dude"
+scroll_active = false
+horizontal_alignment = 1
+
+[connection signal="gui_input" from="Label" to="." method="_on_label_gui_input"]
+[connection signal="gui_input" from="Label" to="." method="_on_gui_input"]
+[connection signal="gui_input" from="TitleSprite/Label" to="." method="_on_gui_input"]
