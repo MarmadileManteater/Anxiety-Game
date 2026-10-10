@@ -283,6 +283,8 @@ scroll_active = false
 horizontal_alignment = 1
 
 [node name="Cursor" type="Sprite2D" parent="." unique_id=186264653]
+texture_filter = 6
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("9_i54ly")
 
 [connection signal="pressed" from="Button" to="." method="_on_click"]
