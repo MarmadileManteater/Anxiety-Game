@@ -33,3 +33,6 @@ func _ready() -> void:
 						save()
 				, 1, self)
 		, ConnectFlags.CONNECT_ONE_SHOT)
+
+func _on_clicked() -> void:
+	$Dialog.progress()
