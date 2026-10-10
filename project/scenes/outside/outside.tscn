@@ -43,6 +43,42 @@ _data = {
 &"pulse": SubResource("Animation_7fvn1")
 }
 
+[sub_resource type="Animation" id="Animation_7jduf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_albt5"]
+resource_name = "fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5i1aa"]
+_data = {
+&"RESET": SubResource("Animation_7jduf"),
+&"fade": SubResource("Animation_albt5")
+}
+
 [node name="Outside" type="Node2D" unique_id=569557653]
 script = ExtResource("1_ile57")
 metadata/_custom_type_script = "uid://vqxqihlbubu7"
@@ -61,11 +97,12 @@ libraries/ = SubResource("AnimationLibrary_7jduf")
 autoplay = &"pulse"
 
 [node name="Curtain" type="Polygon2D" parent="." unique_id=11331115]
-visible = false
 color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(-54, -32, 1546, -62, 1526, 874, -173, 851)
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Curtain" unique_id=1606688842]
+libraries/ = SubResource("AnimationLibrary_5i1aa")
+
 [node name="Dialog" parent="." unique_id=2128977019 instance=ExtResource("4_7fvn1")]
-visible = false
 position = Vector2(686, 617)
 text = PackedStringArray("fucking [b]jesus christ[/b]", "i am [i]shaking[/i]", "why am i like this", "i ASKED for this", "i WANTED to be here", "Come on, babe!\\nI wanna check this place out before the show starts!", ". . . ", "[color=#bbbbbb]I can do this.[/color]")

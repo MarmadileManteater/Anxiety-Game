@@ -3,6 +3,7 @@ extends Node2D
 const text_speed = 0.01
 
 signal line_started
+signal done
 
 @export var text: PackedStringArray
 @export var title: String
@@ -89,6 +90,7 @@ func progress():
 					sprite.hide()
 					label.hide()
 					hide()
+					done.emit()
 			, ConnectFlags.CONNECT_ONE_SHOT)
 	
 func emit_line_started(number: int) -> void:
