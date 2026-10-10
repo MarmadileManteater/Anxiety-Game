@@ -1,6 +1,10 @@
 
 class_name Helpers
 
+static func clear_interval(timer: Timer):
+	timer.get_parent().remove_child(timer)
+	timer.queue_free()
+
 static func set_timeout(callback: Callable, length: float, parent: Node2D):
 	set_interval(callback, length, parent, true)
 
