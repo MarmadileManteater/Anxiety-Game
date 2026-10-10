@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cc8eyxh5tw35i" path="res://scenes/global/global.gd" id="1_pt2l8"]
 [ext_resource type="Texture2D" uid="uid://c80prrji3dhdo" path="res://assets/sprites/pointers/point-back.png" id="2_g0msn"]
+[ext_resource type="PackedScene" uid="uid://bp3qljsfgqwsw" path="res://scenes/click_zone/click_zone.tscn" id="2_syux3"]
 [ext_resource type="Texture2D" uid="uid://bjltrw3r44fhi" path="res://assets/sprites/pointers/point-left.png" id="4_pt2l8"]
 [ext_resource type="Texture2D" uid="uid://n5q3o7nicgpq" path="res://assets/sprites/pointers/default.png" id="9_i54ly"]
 [ext_resource type="Texture2D" uid="uid://dunx76ct1eohg" path="res://assets/sprites/pointers/point-up.png" id="10_xsnr3"]
@@ -134,6 +135,13 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_orsvi")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_ht0q6")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_i54ly")
 
+[node name="Back" parent="." unique_id=624367828 instance=ExtResource("2_syux3")]
+offset_left = -4.0
+offset_top = 639.0
+offset_right = 1373.0
+offset_bottom = 765.0
+direction = 1
+
 [node name="Background" type="Polygon2D" parent="." unique_id=1110480681]
 self_modulate = Color(0.21291032, 0.04955011, 0, 1)
 polygon = PackedVector2Array(-135, -69, 1535, -135, 1564, 828, -206, 846)
@@ -158,3 +166,6 @@ autoplay = "default"
 
 [connection signal="mouse_exited" from="Button" to="." method="_on_button_exited"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="clicked" from="Back" to="." method="_on_back_clicked"]
+[connection signal="mouseoff" from="Back" to="." method="_on_back_mouseoff"]
+[connection signal="mouseover" from="Back" to="." method="_on_back_mouseover"]

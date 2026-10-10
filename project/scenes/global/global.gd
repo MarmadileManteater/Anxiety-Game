@@ -4,6 +4,8 @@ extends Node2D
 
 var time: Helpers.Stage = Helpers.Stage.Middle
 var current_screen: DefaultSceen
+var current_screen_name: String
+var screen_history: Array
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
@@ -22,10 +24,14 @@ func _on_mouse_direction_mouseoff() -> void:
 	$Cursor.flip_h = false
 	$Cursor.play("default")
 	
-func load_screen(screen_name: String):
+func load_screen(screen_name: String, save_history: bool = true):
+	_on_mouse_direction_mouseoff()
 	if current_screen != null:
+		if save_history:
+			screen_history.push_back(current_screen_name)
 		remove_child(current_screen)
 		current_screen.queue_free()
+	current_screen_name = screen_name
 	var scene: PackedScene = load("res://scenes/" + screen_name + "/" + screen_name + ".tscn")
 	var instance: DefaultSceen = scene.instantiate()
 	instance.time = time
@@ -33,10 +39,7 @@ func load_screen(screen_name: String):
 	instance.mousemotion.connect(_on_mouse_motion)
 	instance.mouseover.connect(_on_mouse_direction_mouseover)
 	instance.mouseoff.connect(_on_mouse_direction_mouseoff)
-	instance.zone_clicked.connect(
-		func (screen_name):
-			load_screen(screen_name)
-	)
+	instance.zone_clicked.connect(_on_zone_clicked)
 	add_child(instance)
 	current_screen = instance
 
@@ -45,3 +48,17 @@ func _on_button_pressed() -> void:
 
 func _on_button_exited() -> void:
 	$Cursor.hide()
+	
+func _on_zone_clicked(screen_name: String) -> void:
+	load_screen(screen_name)
+
+func _on_back_clicked(_screen_name: String) -> void:
+	if screen_history.size() > 0:
+		load_screen(screen_history.pop_back(), false)
+
+func _on_back_mouseoff() -> void:
+	_on_mouse_direction_mouseoff()
+
+func _on_back_mouseover(direction: Helpers.Direction) -> void:
+	if screen_history.size() > 0:
+		_on_mouse_direction_mouseover(direction)
