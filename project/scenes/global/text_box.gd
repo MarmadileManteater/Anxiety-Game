@@ -74,6 +74,9 @@ func typewriter(text: String) -> void:
 	typewriter_interval = Helpers.set_interval(
 		func ():
 			var string_part = current_line.substr(0, 1)
+			if string_part.contains("["):
+				while not string_part.ends_with("]"):
+					string_part += current_line.substr(string_part.length(), 1)
 			current_line = current_line.substr(string_part.length())
 			label.text += string_part
 			if current_line.length() == 0:

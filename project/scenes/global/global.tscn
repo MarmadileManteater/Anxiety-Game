@@ -217,7 +217,7 @@ position = Vector2(106, 85)
 [node name="TextBox" type="Node2D" parent="." unique_id=1489858441]
 position = Vector2(686, 617)
 script = ExtResource("2_g0msn")
-text = PackedStringArray("fucking jesus christ", "i am shaking", "why am i like this", "i ASKED for this", "i WANTED to be here", "Come on, babe!\\nI wanna check this place out before the show starts!", ". . . ", "I can do this.")
+text = PackedStringArray("fucking [b]jesus christ[/b]", "i am [i]shaking[/i]", "why am i like this", "i ASKED for this", "i WANTED to be here", "Come on, babe!\\nI wanna check this place out before the show starts!", ". . . ", "[color=#bbbbbb]I can do this.[/color]")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="TextBox" unique_id=997724902]
 visible = false
