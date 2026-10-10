@@ -15,9 +15,11 @@ func _on_mouse_motion(position: Vector2) -> void:
 	$Cursor.position = (position / 1.5) + Vector2(30, 30)
 
 func _on_mouse_direction_mouseover(direction: Helpers.Direction) -> void:
+	$Cursor.flip_h = direction == Helpers.Direction.Right
 	$Cursor.play(Helpers.direction_to_string(direction))
 
 func _on_mouse_direction_mouseoff() -> void:
+	$Cursor.flip_h = false
 	$Cursor.play("default")
 	
 func load_screen(screen_name: String):

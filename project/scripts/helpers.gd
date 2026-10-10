@@ -4,7 +4,7 @@ class_name Helpers
 enum Stage { Early, Middle, Late, Over }
 
 enum Direction { Up , Down, Left, Right }
-const string_directions = ["up", "down", "left", "right"] 
+const string_directions = ["up", "back", "side", "side"] 
  
 static func direction_to_string(direction: Direction) -> String:
 	return string_directions[direction]

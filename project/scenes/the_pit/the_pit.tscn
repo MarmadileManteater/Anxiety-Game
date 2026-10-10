@@ -16,13 +16,35 @@ position = Vector2(106, 85)
 position = Vector2(686, 617)
 text = PackedStringArray("fucking [b]jesus christ[/b]", "i am [i]shaking[/i]", "why am i like this", "i ASKED for this", "i WANTED to be here", "Come on, babe!\\nI wanna check this place out before the show starts!", ". . . ", "[color=#bbbbbb]I can do this.[/color]")
 
-[node name="MouseDirection" parent="." unique_id=624367828 instance=ExtResource("4_5nanq")]
+[node name="MouseDirection3" parent="." unique_id=624367828 instance=ExtResource("4_5nanq")]
+offset_left = 346.0
+offset_top = 558.0
+offset_right = 662.0
+offset_bottom = 862.0
+direction = 3
+screen_name = "the_pit"
+
+[node name="MouseDirection2" parent="." unique_id=1377342068 instance=ExtResource("4_5nanq")]
+offset_left = 250.0
+offset_top = 193.0
+offset_right = 566.0
+offset_bottom = 497.0
+direction = 1
+screen_name = "the_pit"
+
+[node name="MouseDirection" parent="." unique_id=146210332 instance=ExtResource("4_5nanq")]
 offset_left = 847.0
 offset_top = 102.0
 offset_right = 1163.0
 offset_bottom = 406.0
 screen_name = "the_pit"
 
+[connection signal="clicked" from="MouseDirection3" to="." method="_on_zone_clicked"]
+[connection signal="mouseoff" from="MouseDirection3" to="." method="_on_zone_mouseoff"]
+[connection signal="mouseover" from="MouseDirection3" to="." method="_on_zone_mouseover"]
+[connection signal="clicked" from="MouseDirection2" to="." method="_on_zone_clicked"]
+[connection signal="mouseoff" from="MouseDirection2" to="." method="_on_zone_mouseoff"]
+[connection signal="mouseover" from="MouseDirection2" to="." method="_on_zone_mouseover"]
 [connection signal="clicked" from="MouseDirection" to="." method="_on_zone_clicked"]
 [connection signal="mouseoff" from="MouseDirection" to="." method="_on_zone_mouseoff"]
 [connection signal="mouseover" from="MouseDirection" to="." method="_on_zone_mouseover"]
