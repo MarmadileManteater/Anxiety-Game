@@ -8,8 +8,3 @@ func _ready() -> void:
 	dancer1 = $"1"
 	dancer2 = $"2"
 	dancer1.set_frame_and_progress(10, 0)
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

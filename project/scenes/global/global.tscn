@@ -1,9 +1,6 @@
 [gd_scene format=3 uid="uid://cw0v5sjejsb14"]
 
-[ext_resource type="PackedScene" uid="uid://btm8kv2ypw113" path="res://scenes/dancers/dancers.tscn" id="1_bhh4k"]
 [ext_resource type="Script" uid="uid://cc8eyxh5tw35i" path="res://scenes/global/global.gd" id="1_pt2l8"]
-[ext_resource type="PackedScene" uid="uid://bp3qljsfgqwsw" path="res://scenes/click_zone/click_zone.tscn" id="2_syux3"]
-[ext_resource type="PackedScene" uid="uid://ckyxxwa5kygcv" path="res://scenes/text_box/text_box.tscn" id="4_pt2l8"]
 [ext_resource type="Texture2D" uid="uid://n5q3o7nicgpq" path="res://assets/sprites/pointers/default.png" id="9_i54ly"]
 [ext_resource type="Texture2D" uid="uid://dunx76ct1eohg" path="res://assets/sprites/pointers/point-up.png" id="10_xsnr3"]
 
@@ -16,8 +13,6 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ht0q6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i54ly"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xsnr3"]
 
 [sub_resource type="Animation" id="Animation_xi4fc"]
 length = 0.001
@@ -51,10 +46,27 @@ tracks/0/keys = {
 "values": [Color(0.21291032, 0.04955011, 0, 1), Color(0.14105675, 0.10785704, 0.00081953435, 1), Color(0.057688586, 0.13661829, 0, 1), Color(0, 0.13762033, 0.11764946, 1), Color(2.1658838e-07, 0.12680656, 0.18216398, 1), Color(0.108035944, 8.341059e-05, 0.34243894, 1), Color(0.1991123, 4.7697573e-05, 0.21722111, 1), Color(0.21291032, 0.04955011, 0, 1)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_lxdv6"]
+[sub_resource type="Animation" id="Animation_wlaa7"]
+resource_name = "stop"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bm3mx"]
 _data = {
 &"RESET": SubResource("Animation_xi4fc"),
-&"modulate": SubResource("Animation_ww1v4")
+&"modulate": SubResource("Animation_ww1v4"),
+&"stop": SubResource("Animation_wlaa7")
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_syux3"]
@@ -96,45 +108,26 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_orsvi")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_ht0q6")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_i54ly")
 
-[node name="ClickZone" parent="." unique_id=624367828 instance=ExtResource("2_syux3")]
-
-[node name="PanelContainer" type="PanelContainer" parent="." unique_id=375032297]
-offset_left = 898.0
-offset_top = 147.0
-offset_right = 1138.0
-offset_bottom = 375.0
-theme_override_styles/panel = SubResource("StyleBoxEmpty_xsnr3")
-
-[node name="Background" type="Polygon2D" parent="." unique_id=306650132]
+[node name="Background" type="Polygon2D" parent="." unique_id=1110480681]
 self_modulate = Color(0.21291032, 0.04955011, 0, 1)
 polygon = PackedVector2Array(-135, -69, 1535, -135, 1564, 828, -206, 846)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Background" unique_id=1179890584]
-libraries/ = SubResource("AnimationLibrary_lxdv6")
-autoplay = &"modulate"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background" unique_id=1334223365]
+libraries/ = SubResource("AnimationLibrary_bm3mx")
+autoplay = &"stop"
 speed_scale = 3.0
 
-[node name="Dancers" parent="." unique_id=213943213 instance=ExtResource("1_bhh4k")]
-position = Vector2(106, 85)
-
-[node name="TextBox" parent="." unique_id=2128977019 instance=ExtResource("4_pt2l8")]
-position = Vector2(686, 617)
-text = PackedStringArray("fucking [b]jesus christ[/b]", "i am [i]shaking[/i]", "why am i like this", "i ASKED for this", "i WANTED to be here", "Come on, babe!\\nI wanna check this place out before the show starts!", ". . . ", "[color=#bbbbbb]I can do this.[/color]")
+[node name="Camera2D" type="Camera2D" parent="." unique_id=766267853]
+position = Vector2(682, 384)
+zoom = Vector2(1.5, 1.5)
 
 [node name="Cursor" type="AnimatedSprite2D" parent="." unique_id=1113328815]
 visible = false
+z_index = 1
 texture_filter = 6
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_6wcjf")
 autoplay = "default"
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1127170600]
-position = Vector2(682, 384)
-zoom = Vector2(1.5, 1.5)
-
-[connection signal="mouse_exited" from="Button" to="." method="_on_mouse_exited"]
-[connection signal="pressed" from="Button" to="." method="_on_click"]
-[connection signal="mouseoff" from="ClickZone" to="." method="_on_mouse_direction_mouseoff"]
-[connection signal="mouseover" from="ClickZone" to="." method="_on_mouse_direction_mouseover"]
-[connection signal="mouse_entered" from="PanelContainer" to="." method="_on_mouse_up"]
-[connection signal="mouse_exited" from="PanelContainer" to="." method="_on_mouse_neutral"]
+[connection signal="mouse_exited" from="Button" to="." method="_on_button_exited"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

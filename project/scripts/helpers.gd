@@ -1,6 +1,8 @@
 
 class_name Helpers
 
+enum Stage { Early, Middle, Late, Over }
+
 enum Direction { Up , Down, Left, Right }
 const string_directions = ["up", "down", "left", "right"] 
  

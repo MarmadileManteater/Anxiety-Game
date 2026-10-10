@@ -7,9 +7,10 @@ signal mouseoff
 signal clicked
 
 @export var direction: Helpers.Direction = Helpers.Direction.Up
+@export var screen_name: String
 
 func pressed() -> void:
-	clicked.emit()
+	clicked.emit(screen_name)
 
 func emit_over() -> void:
 	mouseover.emit(direction)

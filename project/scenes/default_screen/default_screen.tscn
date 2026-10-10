@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://btww6mjd2w4nb"]
+
+[ext_resource type="Script" uid="uid://vqxqihlbubu7" path="res://scenes/default_screen/default_screen.gd" id="1_wrtp0"]
+
+[node name="DefaultScreen" type="Node2D" unique_id=675969364]
+script = ExtResource("1_wrtp0")
