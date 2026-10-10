@@ -116,9 +116,8 @@ offset_right = 780.20325
 offset_bottom = 408.0
 screen_name = "desk"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=757932843]
+[node name="Car" type="AudioStreamPlayer" parent="." unique_id=757932843]
 stream = ExtResource("6_7jduf")
-autoplay = true
 
 [connection signal="clicked" from="Door" to="." method="_on_zone_clicked"]
 [connection signal="mouseoff" from="Door" to="." method="_on_zone_mouseoff"]

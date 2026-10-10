@@ -6,6 +6,7 @@ func _ready() -> void:
 	if state.game_started:
 		$Curtain.hide()
 	else:
+		$Car.play()
 		disable_cursor_change.emit()
 		Helpers.set_timeout(
 			func ():

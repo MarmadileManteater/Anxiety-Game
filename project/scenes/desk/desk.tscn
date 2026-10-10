@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bg3aj46yl44sa" path="res://scenes/desk/desk.gd" id="1_78764"]
 [ext_resource type="Texture2D" uid="uid://bm3dcynpsgblm" path="res://assets/screens/reception.png" id="2_mkj3i"]
 [ext_resource type="PackedScene" uid="uid://ckyxxwa5kygcv" path="res://scenes/text_box/text_box.tscn" id="3_78764"]
+[ext_resource type="PackedScene" uid="uid://bp3qljsfgqwsw" path="res://scenes/click_zone/click_zone.tscn" id="4_2r18a"]
 
 [node name="Desk" type="Node2D" unique_id=1952264994]
 script = ExtResource("1_78764")
@@ -15,3 +16,14 @@ texture = ExtResource("2_mkj3i")
 [node name="Dialog" parent="." unique_id=2128977019 instance=ExtResource("3_78764")]
 position = Vector2(686, 617)
 text = PackedStringArray("may i see your ID?", ". . .\\nyes", ". . .", "oh, it is your birthday?", ". . . \\nyes", "happy birthday", "now, can you hold your wrist out for me, please?", "[color=a2bafd]21+ bracelet obtained[/color]")
+
+[node name="Door" parent="." unique_id=624367828 instance=ExtResource("4_2r18a")]
+offset_left = 571.0
+offset_top = -2.0
+offset_right = 780.20325
+offset_bottom = 254.0
+screen_name = "looking_at_pit"
+
+[connection signal="clicked" from="Door" to="." method="_on_zone_clicked"]
+[connection signal="mouseoff" from="Door" to="." method="_on_zone_mouseoff"]
+[connection signal="mouseover" from="Door" to="." method="_on_zone_mouseover"]

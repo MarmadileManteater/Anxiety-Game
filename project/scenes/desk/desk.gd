@@ -31,7 +31,7 @@ func _ready() -> void:
 						enable_cursor_change.emit()
 						state.bracelet_obtained = true
 						save()
-				, 1, self)
+				, 0.1, self)
 		, ConnectFlags.CONNECT_ONE_SHOT)
 
 func _on_clicked() -> void:
