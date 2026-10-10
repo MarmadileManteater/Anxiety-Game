@@ -8,6 +8,17 @@
 [ext_resource type="Texture2D" uid="uid://6iuxyyi7ngdj" path="res://assets/sprites/text-box/3.png" id="4_pt2l8"]
 [ext_resource type="Texture2D" uid="uid://yhd7a4o6fexe" path="res://assets/sprites/text-box/arrow.png" id="7_orsvi"]
 [ext_resource type="Texture2D" uid="uid://c80n1i65rcgec" path="res://assets/sprites/text-box/title.png" id="8_ht0q6"]
+[ext_resource type="Texture2D" uid="uid://n5q3o7nicgpq" path="res://assets/sprites/pointers/default.png" id="9_i54ly"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0dxmq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pt2l8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_orsvi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ht0q6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i54ly"]
 
 [sub_resource type="Animation" id="Animation_xi4fc"]
 length = 0.001
@@ -189,18 +200,17 @@ _data = {
 &"bob": SubResource("Animation_ht0q6")
 }
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0dxmq"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pt2l8"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_orsvi"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ht0q6"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i54ly"]
-
 [node name="Node2D" type="Node2D" unique_id=1004355027]
 script = ExtResource("1_pt2l8")
+
+[node name="Button" type="Button" parent="." unique_id=973187671]
+offset_right = 1372.0
+offset_bottom = 765.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0dxmq")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_pt2l8")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_orsvi")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ht0q6")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_i54ly")
 
 [node name="Background" type="Polygon2D" parent="." unique_id=306650132]
 self_modulate = Color(0.21291032, 0.04955011, 0, 1)
@@ -272,13 +282,10 @@ text = "some dude"
 scroll_active = false
 horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="." unique_id=973187671]
-offset_right = 1372.0
-offset_bottom = 765.0
-theme_override_styles/normal = SubResource("StyleBoxEmpty_0dxmq")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_pt2l8")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_orsvi")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_ht0q6")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_i54ly")
+[node name="Cursor" type="Sprite2D" parent="." unique_id=186264653]
+texture = ExtResource("9_i54ly")
 
 [connection signal="pressed" from="Button" to="." method="_on_click"]
+[connection signal="gui_input" from="TextBox/Label" to="TextBox" method="_on_label_gui_input"]
+[connection signal="gui_input" from="TextBox/Label" to="TextBox" method="_on_gui_input"]
+[connection signal="gui_input" from="TextBox/TitleSprite/Label" to="TextBox" method="_on_gui_input"]

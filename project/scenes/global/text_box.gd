@@ -105,3 +105,8 @@ func progress():
 	
 func emit_line_started(number: int) -> void:
 	emit_signal("line_started", number)
+
+func _on_gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if event.is_pressed():
+			progress()
