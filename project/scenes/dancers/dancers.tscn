@@ -340,7 +340,7 @@ frame_progress = 0.45959428
 [node name="AnimationPlayer" type="AnimationPlayer" parent="3" unique_id=1102771150]
 libraries/ = SubResource("AnimationLibrary_d4neo")
 autoplay = &"modulate"
-speed_scale = 3.1
+speed_scale = 3.0
 
 [node name="1" type="AnimatedSprite2D" parent="." unique_id=1849020009]
 position = Vector2(495, 214)
