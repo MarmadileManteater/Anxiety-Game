@@ -5,6 +5,43 @@
 [ext_resource type="Texture2D" uid="uid://b5omc8mdbg65t" path="res://assets/sprites/musician.png" id="2_hirbe"]
 [ext_resource type="PackedScene" uid="uid://ckyxxwa5kygcv" path="res://scenes/text_box/text_box.tscn" id="4_3mxp7"]
 
+[sub_resource type="Animation" id="Animation_3mxp7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_gmun7"]
+resource_name = "fade_in"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fr4cy"]
+_data = {
+&"RESET": SubResource("Animation_3mxp7"),
+&"fade_in": SubResource("Animation_gmun7")
+}
+
 [node name="LookingAtPit" type="Node2D" unique_id=672502524]
 script = ExtResource("1_hirbe")
 metadata/_custom_type_script = "uid://vqxqihlbubu7"
@@ -13,10 +50,14 @@ metadata/_custom_type_script = "uid://vqxqihlbubu7"
 position = Vector2(684, 384)
 texture = ExtResource("1_td7m7")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1982893111]
+[node name="Bandmate" type="Sprite2D" parent="." unique_id=1982893111]
+self_modulate = Color(1, 1, 1, 0)
 position = Vector2(719, 291)
 texture = ExtResource("2_hirbe")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Bandmate" unique_id=475716958]
+libraries/ = SubResource("AnimationLibrary_fr4cy")
+
 [node name="Dialog" parent="." unique_id=2128977019 instance=ExtResource("4_3mxp7")]
 position = Vector2(686, 617)
-text = PackedStringArray("hey, babe\\ni\'m gonna go try to find the bathroom.", ". . . okay", ". . .", "Hey, how are you doing?", "uhhh, i am doing well.", ". . . how are [i]you[/i] doing on this evening?", "[color=969696]why am i so bad at speaking??????[/color]", "I\'m doing alright.", "Do you come here often?", ". . . not since [b]2019[/b]", "Oh, okay.", "this place is [i]really cool[/i]", "[b]Yeah[/b], it is.", "Do you play any instruments?", ". . . ", "uhhhh, no. I mean . . . ", "-ye-yes, technically, i play bass, but only really for myself.", "i don\'t play in front of anyone or anything . . .", "That is so valid.", "d-do you play any instruments?", "I do. I play guitar.", "I\'m actually going to be playing it pretty soon.", "[i]You[/i] are performing tonight?", "Yeah.", "Oh! Wow, I guess I just-", "I guess I forgot that y\'all are people too.", "Yep, just normal people.", "[i][color=969696]You see your genderqueer fucktoy returning.[/color][/i]", "well, anyways, i-i hope you have a good evening.", "You the same.", "Hey, babe. Are you doing alright? You look shaken.", "Yeah", "I am alright.")
+text = PackedStringArray("hey, babe\\ni\'m gonna go try to find the bathroom.", ". . . okay", ". . .", "Hey, how are you doing?", "uhhh, i am doing well.", ". . . how are [i]you[/i] doing on this evening?", "[color=969696]why am i so bad at speaking??????[/color]", "I\'m doing alright.", "Do you come here often?", ". . . not since [b]2019[/b]", "Oh, okay.", "this place is [i]really cool[/i]", "[b]Yeah[/b], it is.", "Do you play any instruments?", ". . . ", "uhhhh, no. I mean . . . ", "-ye-yes, technically, i play bass, but only really for myself.", "i don\'t play in front of anyone or anything . . .", "That is so valid.", "d-do you play any instruments?", "I do. I play guitar.", "I\'m actually going to be playing it pretty soon.", "[i]You[/i] are performing tonight?", "Yeah.", "Oh! Wow, I guess I just-", "I guess I forgot that y\'all are people too.", "Yep, just normal people.", "[i][color=969696]You see your genderqueer fucktoy returning.[/color][/i]", "well, anyways, i-i hope you have a good evening.", "You the same.", "Hey, babe. Are you doing alright? You look shaken.", "Yeah.", "I am doing alright.")

@@ -16,6 +16,7 @@ func _ready() -> void:
 				if index == 1:
 					$Dialog.clear_title()
 				if index == 3:
+					$Bandmate/AnimationPlayer.play("fade_in")
 					$Dialog.set_title("another human")
 				if index == 4:
 					$Dialog.clear_title()
@@ -50,6 +51,7 @@ func _ready() -> void:
 				if index == 29:
 					$Dialog.set_title("another human")
 				if index == 30:
+					$Bandmate/AnimationPlayer.play_backwards("fade_in")
 					$Dialog.set_title("joyfriend")
 				if index == 31:
 					$Dialog.clear_title()
