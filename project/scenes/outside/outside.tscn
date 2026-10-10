@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bybma16sshihy" path="res://assets/sprites/objects/flame.png" id="3_qbnsr"]
 [ext_resource type="PackedScene" uid="uid://ckyxxwa5kygcv" path="res://scenes/text_box/text_box.tscn" id="4_7fvn1"]
 [ext_resource type="PackedScene" uid="uid://bp3qljsfgqwsw" path="res://scenes/click_zone/click_zone.tscn" id="5_7fvn1"]
+[ext_resource type="AudioStream" uid="uid://c2bau0jnmnlqi" path="res://assets/effects/Car SFX - In Car w Music.wav" id="6_7jduf"]
 
 [sub_resource type="Animation" id="Animation_ile57"]
 length = 0.001
@@ -114,6 +115,10 @@ offset_top = 83.0
 offset_right = 780.20325
 offset_bottom = 408.0
 screen_name = "desk"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=757932843]
+stream = ExtResource("6_7jduf")
+autoplay = true
 
 [connection signal="clicked" from="Door" to="." method="_on_zone_clicked"]
 [connection signal="mouseoff" from="Door" to="." method="_on_zone_mouseoff"]
