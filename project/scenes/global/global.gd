@@ -9,7 +9,7 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	
 	if event is InputEventMouseMotion:
-		$Cursor.position = event.position
+		$Cursor.position = (event.position / 1.5) + Vector2(30, 30)
 		
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
