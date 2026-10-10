@@ -1,11 +1,17 @@
 [gd_scene format=3 uid="uid://dhmqyungnat8p"]
 
 [ext_resource type="Script" uid="uid://d203vtjs0csc2" path="res://scenes/the_pit/the_pit.gd" id="1_nhmyf"]
+[ext_resource type="Texture2D" uid="uid://ve6m0x0qvy1f" path="res://assets/screens/pit-early.png" id="2_3cyfy"]
 [ext_resource type="PackedScene" uid="uid://btm8kv2ypw113" path="res://scenes/dancers/dancers.tscn" id="3_3cyfy"]
 
 [node name="ThePit" type="Node2D" unique_id=452296394]
 script = ExtResource("1_nhmyf")
 metadata/_custom_type_script = "uid://vqxqihlbubu7"
 
+[node name="Drawing" type="Sprite2D" parent="." unique_id=23485728]
+position = Vector2(683, 383)
+texture = ExtResource("2_3cyfy")
+
 [node name="Dancers" parent="." unique_id=213943213 instance=ExtResource("3_3cyfy")]
-position = Vector2(106, 85)
+position = Vector2(253, 200)
+scale = Vector2(0.75, 0.75)

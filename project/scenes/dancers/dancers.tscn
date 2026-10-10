@@ -135,7 +135,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"default",
-"speed": 8.0
+"speed": 7.0
 }]
 
 [node name="Dancers" type="Node2D" unique_id=213943213]
