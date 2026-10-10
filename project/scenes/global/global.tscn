@@ -287,6 +287,10 @@ texture_filter = 6
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("9_i54ly")
 
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1127170600]
+position = Vector2(682, 384)
+zoom = Vector2(1.5, 1.5)
+
 [connection signal="pressed" from="Button" to="." method="_on_click"]
 [connection signal="gui_input" from="TextBox/Label" to="TextBox" method="_on_label_gui_input"]
 [connection signal="gui_input" from="TextBox/Label" to="TextBox" method="_on_gui_input"]
