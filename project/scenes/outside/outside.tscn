@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://bnyhxp7y62amw"]
+
+[ext_resource type="Script" uid="uid://dhcbcuxvlq0w" path="res://scenes/outside/outside.gd" id="1_ile57"]
+[ext_resource type="Texture2D" uid="uid://clhtxnt31sof1" path="res://assets/screens/outside.png" id="2_bnvo1"]
+[ext_resource type="Texture2D" uid="uid://bybma16sshihy" path="res://assets/sprites/objects/flame.png" id="3_qbnsr"]
+[ext_resource type="PackedScene" uid="uid://ckyxxwa5kygcv" path="res://scenes/text_box/text_box.tscn" id="4_7fvn1"]
+
+[sub_resource type="Animation" id="Animation_ile57"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.44456145, 0.13114125, 0.00713394, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_7fvn1"]
+resource_name = "pulse"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.43333337, 1.4666667, 2.2666667, 4.9333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.44456145, 0.13114125, 0.00713394, 1), Color(0.91884387, 0.24700445, 0.024550727, 1), Color(0.91884387, 0.24700445, 0.024550727, 1), Color(0.91884387, 0.24700445, 0.024550727, 1), Color(0.44456145, 0.13114125, 0.00713394, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7jduf"]
+_data = {
+&"RESET": SubResource("Animation_ile57"),
+&"pulse": SubResource("Animation_7fvn1")
+}
+
+[node name="Outside" type="Node2D" unique_id=569557653]
+script = ExtResource("1_ile57")
+metadata/_custom_type_script = "uid://vqxqihlbubu7"
+
+[node name="Drawing" type="Sprite2D" parent="." unique_id=24004235]
+position = Vector2(682, 384)
+texture = ExtResource("2_bnvo1")
+
+[node name="Flame" type="Sprite2D" parent="." unique_id=1321064241]
+self_modulate = Color(0.44456145, 0.13114125, 0.00713394, 1)
+position = Vector2(1102, 346)
+texture = ExtResource("3_qbnsr")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Flame" unique_id=922693464]
+libraries/ = SubResource("AnimationLibrary_7jduf")
+autoplay = &"pulse"
+
+[node name="Curtain" type="Polygon2D" parent="." unique_id=11331115]
+visible = false
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-54, -32, 1546, -62, 1526, 874, -173, 851)
+
+[node name="Dialog" parent="." unique_id=2128977019 instance=ExtResource("4_7fvn1")]
+visible = false
+position = Vector2(686, 617)
+text = PackedStringArray("fucking [b]jesus christ[/b]", "i am [i]shaking[/i]", "why am i like this", "i ASKED for this", "i WANTED to be here", "Come on, babe!\\nI wanna check this place out before the show starts!", ". . . ", "[color=#bbbbbb]I can do this.[/color]")

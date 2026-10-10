@@ -125,6 +125,7 @@ animations = [{
 
 [node name="Node2D" type="Node2D" unique_id=1004355027]
 script = ExtResource("1_pt2l8")
+start_screen = "outside"
 
 [node name="Button" type="Button" parent="." unique_id=973187671]
 offset_right = 1372.0
