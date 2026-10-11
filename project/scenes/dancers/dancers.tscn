@@ -327,28 +327,34 @@ _data = {
 }
 
 [node name="Dancers" type="Node2D" unique_id=213943213]
+z_index = 1
 script = ExtResource("1_s70bo")
 
-[node name="3" type="AnimatedSprite2D" parent="." unique_id=539380448]
+[node name="6" type="AnimatedSprite2D" parent="." unique_id=650399292]
+visible = false
 self_modulate = Color(0.21291032, 0.04955011, 0, 1)
-position = Vector2(489, 214)
+z_index = 2
+position = Vector2(418, 239)
 sprite_frames = SubResource("SpriteFrames_0dxmq")
 autoplay = "mask"
 frame_progress = 0.5138748
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="3" unique_id=1102771150]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="6" unique_id=2056172017]
 libraries/ = SubResource("AnimationLibrary_d4neo")
 autoplay = &"modulate"
 speed_scale = 3.0
 
-[node name="1" type="AnimatedSprite2D" parent="." unique_id=1849020009]
-position = Vector2(495, 214)
+[node name="5" type="AnimatedSprite2D" parent="." unique_id=1112851286]
+visible = false
+z_index = 2
+position = Vector2(418, 239)
 sprite_frames = SubResource("SpriteFrames_0dxmq")
 autoplay = "default"
-frame_progress = 0.43448958
+frame_progress = 0.13876916
 
 [node name="4" type="AnimatedSprite2D" parent="." unique_id=368385571]
 self_modulate = Color(0.21291032, 0.04955011, 0, 1)
+z_index = 1
 position = Vector2(462, 237)
 sprite_frames = SubResource("SpriteFrames_0dxmq")
 autoplay = "mask"
@@ -360,7 +366,28 @@ autoplay = &"modulate"
 speed_scale = 3.0
 
 [node name="2" type="AnimatedSprite2D" parent="." unique_id=103516865]
+z_index = 1
 position = Vector2(462, 237)
 sprite_frames = SubResource("SpriteFrames_0dxmq")
 autoplay = "default"
 frame_progress = 0.13876916
+
+[node name="3" type="AnimatedSprite2D" parent="." unique_id=539380448]
+self_modulate = Color(0.21291032, 0.04955011, 0, 1)
+z_index = 1
+position = Vector2(489, 214)
+sprite_frames = SubResource("SpriteFrames_0dxmq")
+autoplay = "mask"
+frame_progress = 0.5138748
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="3" unique_id=1102771150]
+libraries/ = SubResource("AnimationLibrary_d4neo")
+autoplay = &"modulate"
+speed_scale = 3.0
+
+[node name="1" type="AnimatedSprite2D" parent="." unique_id=1849020009]
+z_index = 1
+position = Vector2(495, 214)
+sprite_frames = SubResource("SpriteFrames_0dxmq")
+autoplay = "default"
+frame_progress = 0.43448958

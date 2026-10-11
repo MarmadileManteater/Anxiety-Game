@@ -150,6 +150,7 @@ _data = {
 }
 
 [node name="TextBox" type="Node2D" unique_id=2128977019]
+z_index = 10
 script = ExtResource("1_um34n")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1439722699]
@@ -205,6 +206,6 @@ text = "some dude"
 scroll_active = false
 horizontal_alignment = 1
 
-[connection signal="gui_input" from="Label" to="." method="_on_label_gui_input"]
 [connection signal="gui_input" from="Label" to="." method="_on_gui_input"]
+[connection signal="gui_input" from="Label" to="." method="_on_label_gui_input"]
 [connection signal="gui_input" from="TitleSprite/Label" to="." method="_on_gui_input"]
