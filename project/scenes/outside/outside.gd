@@ -3,6 +3,7 @@ extends DefaultSceen
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	change_volume.emit(-40)
 	if state.game_started:
 		$Curtain.hide()
 	else:
@@ -21,13 +22,16 @@ func _ready() -> void:
 		)
 		$Dialog.done.connect(
 			func ():
-				Helpers.set_timeout(
-					func ():
+				$Car.stop()
+				$OutOfCar.play()
+				$OutOfCar.finished.connect(
+					func():
 						$Curtain/AnimationPlayer.play("fade")
 						enable_cursor_change.emit()
 						state.game_started = true
 						save()
-				, 1, self)
+				, ConnectFlags.CONNECT_ONE_SHOT)
+
 		, ConnectFlags.CONNECT_ONE_SHOT)
 
 func _on_clicked() -> void:

@@ -4,17 +4,22 @@ var clicked_on_dancers: bool = false
 var yes_entered: bool = false
 var yes_2_entered: bool = false
 var final_yes: bool = false
+var lock_dancers: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	change_volume.emit(0)
+	$Drawing.play(Helpers.stage_to_string(time))
 	if time != Helpers.Stage.Early:
+		play_music.emit()
+		$Dancers.show()
+		$Door.show()
 		background_animation_player.play("modulate")
 		$Dancers.set_modulate_timestamp(background_animation_player.current_animation_position)
 		Helpers.set_interval(
 			func ():
 				$Dancers.set_modulate_timestamp(background_animation_player.current_animation_position)
 		, 1, self)
-		
 		
 func click_on_dancers() -> void:
 	if state.has_danced:
@@ -32,6 +37,7 @@ func click_on_dancers() -> void:
 					$Dialog.clear_title()
 					$Dialog.lock()
 					$ChoiceWindow.show()
+					$Door.hide()
 		)
 	else:
 		$Dialog.progress()
@@ -76,9 +82,11 @@ func _on_no_pressed() -> void:
 			$Dialog.line_finished = false
 			$ChoiceWindow/AnimationPlayer.play("RESET")
 			enable_cursor_change.emit()
+			$Door.show()
 	, 2, self)
 
 func _on_yes_pressed() -> void:
+	disable_cursor_change.emit()
 	$Dialog.text[4] = "let's do this"
 	$Dialog.done.connect(
 		func ():
@@ -100,6 +108,7 @@ func _on_yes_pressed() -> void:
 			$Dialog.line_finished = false
 			$ChoiceWindow/AnimationPlayer.play("RESET")
 			enable_cursor_change.emit()
+			$Door.show()
 	, 2, self)
 
 func _on_dancing_mouseover(direction) -> void:
