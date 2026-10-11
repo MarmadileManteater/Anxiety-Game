@@ -118,5 +118,6 @@ func emit_line_started(number: int) -> void:
 
 func _on_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
-		if event.is_pressed():
-			progress()
+		if event.button_index == MouseButton.MOUSE_BUTTON_LEFT:
+			if event.is_pressed():
+				progress()
