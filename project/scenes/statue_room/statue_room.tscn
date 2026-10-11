@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://jdylf65gro7w" path="res://scenes/statue_room/statue_room.gd" id="1_nk6kv"]
 [ext_resource type="Texture2D" uid="uid://dkhmsolgsd45t" path="res://assets/screens/room.png" id="2_nk6kv"]
+[ext_resource type="PackedScene" uid="uid://ckyxxwa5kygcv" path="res://scenes/text_box/text_box.tscn" id="3_pxx5d"]
 
 [node name="StatueRoom" type="Node2D" unique_id=781630942]
 script = ExtResource("1_nk6kv")
@@ -10,3 +11,7 @@ metadata/_custom_type_script = "uid://vqxqihlbubu7"
 [node name="Drawing" type="Sprite2D" parent="." unique_id=1338287954]
 position = Vector2(684, 384)
 texture = ExtResource("2_nk6kv")
+
+[node name="Dialog" parent="." unique_id=2128977019 instance=ExtResource("3_pxx5d")]
+position = Vector2(686, 617)
+text = PackedStringArray("mood", "I know right???", "me when i got laid off by a corporate raider who then liquidated 90% of the company and got caught saying the n word a bunch in private conversations", "For sure. For sure.")

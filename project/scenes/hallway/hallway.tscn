@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bsakedkljbr1" path="res://scenes/hallway/hallway.gd" id="1_8ww00"]
 [ext_resource type="Texture2D" uid="uid://behsd87vc663p" path="res://assets/screens/hallway.png" id="2_1u7ug"]
 [ext_resource type="PackedScene" uid="uid://bp3qljsfgqwsw" path="res://scenes/click_zone/click_zone.tscn" id="3_fe174"]
+[ext_resource type="PackedScene" uid="uid://ckyxxwa5kygcv" path="res://scenes/text_box/text_box.tscn" id="4_1u7ug"]
 
 [node name="Hallway" type="Node2D" unique_id=239645673]
 script = ExtResource("1_8ww00")
@@ -38,6 +39,10 @@ offset_bottom = 318.10712
 rotation = 0.2443461
 direction = 3
 screen_name = "computer"
+
+[node name="Dialog" parent="." unique_id=2128977019 instance=ExtResource("4_1u7ug")]
+position = Vector2(686, 617)
+text = PackedStringArray("Okay, so, from what I understand . . .", "This venue has a bunch of tents and some rooms set up with rotating art installations.", "interesting")
 
 [connection signal="clicked" from="StatueDoor" to="." method="_on_zone_clicked"]
 [connection signal="mouseoff" from="StatueDoor" to="." method="_on_zone_mouseoff"]
