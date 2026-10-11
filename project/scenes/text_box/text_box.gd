@@ -77,7 +77,8 @@ func typewriter(text: String) -> void:
 """)
 	typewriter_interval = Helpers.set_interval(
 		func ():
-			$Chirp.play()
+			if not $Chirp.playing:
+				$Chirp.play()
 			var string_part = current_line.substr(0, 1)
 			if string_part.contains("["):
 				while not string_part.ends_with("]"):
