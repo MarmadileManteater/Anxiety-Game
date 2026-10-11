@@ -35,8 +35,9 @@ func _ready() -> void:
 					$Dialog.clear_title()
 				if index == 18:
 					$Dialog.set_title("another human")
-				if index == 19:
+				if index == 21:
 					$Dialog.clear_title()
+				index += 1
 				if index == 20:
 					$Dialog.set_title("another human")
 				if index == 22:
