@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bp3qljsfgqwsw"]
+
+[ext_resource type="Script" uid="uid://dxhr61l1xsx7x" path="res://scenes/click_zone/click_zone.gd" id="1_6pey4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0dxmq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pt2l8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_orsvi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ht0q6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i54ly"]
+
+[node name="MouseDirection" type="Button" unique_id=624367828]
+offset_left = 826.0
+offset_top = 112.0
+offset_right = 1142.0
+offset_bottom = 416.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0dxmq")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_pt2l8")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_orsvi")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ht0q6")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_i54ly")
+script = ExtResource("1_6pey4")
+
+[connection signal="mouse_entered" from="." to="." method="emit_over"]
+[connection signal="mouse_exited" from="." to="." method="emit_off"]
+[connection signal="pressed" from="." to="." method="pressed"]

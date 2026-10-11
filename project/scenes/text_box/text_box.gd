@@ -3,6 +3,7 @@ extends Node2D
 const text_speed = 0.01
 
 signal line_started
+signal done
 
 @export var text: PackedStringArray
 @export var title: String
@@ -18,6 +19,7 @@ var current_line: String
 var index: int = 0
 var line_finished: bool = false
 var typewriter_interval: Timer
+var is_locked: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -27,20 +29,15 @@ func _ready() -> void:
 	label_animation_player = $Label/AnimationPlayer
 	title_sprite = $TitleSprite
 	title_label = $TitleSprite/Label
+
+func lock() -> void:
+	is_locked = true
 	
-	Helpers.set_timeout(
-		func ():
-			display()
-	, 1, self)
-	line_started.connect(
-		func (index: int):
-			if index == 5:
-				set_title("joyfriend")
-			if index == 6:
-				clear_title()
-	)
+func unlock() -> void:
+	is_locked = false
 
 func display() -> void:
+	show()
 	sprite.show()
 	sprite.play("show")
 	
@@ -86,6 +83,9 @@ func typewriter(text: String) -> void:
 	, text_speed, self)
 	
 func progress():
+	if is_locked:
+		return
+	
 	if line_finished:
 		line_finished = false
 		arrow.hide()
@@ -101,7 +101,13 @@ func progress():
 					sprite.hide()
 					label.hide()
 					hide()
+					done.emit()
 			, ConnectFlags.CONNECT_ONE_SHOT)
-	
+	 
 func emit_line_started(number: int) -> void:
 	emit_signal("line_started", number)
+
+func _on_gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if event.is_pressed():
+			progress()

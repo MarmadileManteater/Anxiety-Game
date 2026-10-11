@@ -1,6 +1,14 @@
 
 class_name Helpers
 
+enum Stage { Early, Middle, Late, Over }
+
+enum Direction { Up , Down, Left, Right }
+const string_directions = ["up", "back", "side", "side"] 
+ 
+static func direction_to_string(direction: Direction) -> String:
+	return string_directions[direction]
+
 static func clear_interval(timer: Timer):
 	timer.get_parent().remove_child(timer)
 	timer.queue_free()
