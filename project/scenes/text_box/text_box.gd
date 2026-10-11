@@ -37,6 +37,8 @@ func unlock() -> void:
 	is_locked = false
 
 func display() -> void:
+	if index != 0:
+		return
 	show()
 	sprite.show()
 	sprite.play("show")

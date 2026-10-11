@@ -3,11 +3,87 @@
 [ext_resource type="Script" uid="uid://d203vtjs0csc2" path="res://scenes/the_pit/the_pit.gd" id="1_nhmyf"]
 [ext_resource type="Texture2D" uid="uid://ve6m0x0qvy1f" path="res://assets/screens/pit-early.png" id="2_3cyfy"]
 [ext_resource type="PackedScene" uid="uid://btm8kv2ypw113" path="res://scenes/dancers/dancers.tscn" id="3_3cyfy"]
+[ext_resource type="Texture2D" uid="uid://dptr1bcmpdlsc" path="res://assets/screens/pit-show.png" id="3_hmf0p"]
+[ext_resource type="Texture2D" uid="uid://datsypjt1inbx" path="res://assets/sprites/guitarist/1.png" id="4_hdxq6"]
 [ext_resource type="PackedScene" uid="uid://ckyxxwa5kygcv" path="res://scenes/text_box/text_box.tscn" id="4_qbv4b"]
 [ext_resource type="PackedScene" uid="uid://bp3qljsfgqwsw" path="res://scenes/click_zone/click_zone.tscn" id="5_5nanq"]
+[ext_resource type="Texture2D" uid="uid://dr6yijjflmulm" path="res://assets/sprites/guitarist/2.png" id="5_q5ebo"]
 [ext_resource type="Texture2D" uid="uid://cuixu41ybigky" path="res://assets/sprites/text-box/choice.png" id="6_3vq54"]
 [ext_resource type="Texture2D" uid="uid://2jksy72jidjp" path="res://assets/sprites/text-box/no.png" id="6_301ep"]
+[ext_resource type="Texture2D" uid="uid://bmtsgce1wbole" path="res://assets/sprites/bass/1.png" id="6_va018"]
 [ext_resource type="Texture2D" uid="uid://bdiy10tel53vy" path="res://assets/sprites/text-box/yes.png" id="7_3vq54"]
+[ext_resource type="Texture2D" uid="uid://djbgodsg1o0b1" path="res://assets/sprites/bass/2.png" id="7_hnc3w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yjlie"]
+atlas = ExtResource("2_3cyfy")
+region = Rect2(0, 0, 1368, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_27jg4"]
+atlas = ExtResource("3_hmf0p")
+region = Rect2(0, 0, 1368, 768)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0dxmq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yjlie")
+}],
+"loop": 0,
+"name": &"early",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_27jg4")
+}],
+"loop": 0,
+"name": &"middle",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d45ll"]
+atlas = ExtResource("4_hdxq6")
+region = Rect2(0, 0, 240, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fk7fj"]
+atlas = ExtResource("5_q5ebo")
+region = Rect2(0, 0, 240, 240)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6wcjf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d45ll")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fk7fj")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a36vd"]
+atlas = ExtResource("6_va018")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ud8ww"]
+atlas = ExtResource("7_hnc3w")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u4npt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a36vd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ud8ww")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 2.0
+}]
 
 [sub_resource type="Animation" id="Animation_3vq54"]
 length = 0.001
@@ -71,6 +147,18 @@ tracks/4/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:z_index")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
 
 [sub_resource type="Animation" id="Animation_27jg4"]
 resource_name = "bounce1"
@@ -111,6 +199,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [-0.08726646]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:z_index")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_hmf0p"]
@@ -217,19 +317,35 @@ _data = {
 script = ExtResource("1_nhmyf")
 metadata/_custom_type_script = "uid://vqxqihlbubu7"
 
-[node name="Drawing" type="Sprite2D" parent="." unique_id=23485728]
+[node name="Drawing" type="AnimatedSprite2D" parent="." unique_id=1536626162]
 position = Vector2(683, 383)
-texture = ExtResource("2_3cyfy")
+sprite_frames = SubResource("SpriteFrames_0dxmq")
+animation = &"middle"
+autoplay = "early"
+
+[node name="Guitarist" type="AnimatedSprite2D" parent="Drawing" unique_id=811851345]
+position = Vector2(94, -249)
+sprite_frames = SubResource("SpriteFrames_6wcjf")
+autoplay = "default"
+frame_progress = 0.25009128
+
+[node name="Bassists" type="AnimatedSprite2D" parent="Drawing" unique_id=1693977462]
+position = Vector2(-91, -271)
+sprite_frames = SubResource("SpriteFrames_u4npt")
+autoplay = "default"
+frame_progress = 0.6922425
 
 [node name="Dancers" parent="." unique_id=213943213 instance=ExtResource("3_3cyfy")]
+visible = false
 position = Vector2(253, 200)
 scale = Vector2(0.75, 0.75)
 
 [node name="Dialog" parent="." unique_id=2128977019 instance=ExtResource("4_qbv4b")]
 position = Vector2(686, 617)
-text = PackedStringArray("they look like they are having fun.", "i kind of want to join them . . .", "You should!", "[i][color=#bbbbbb]should i?[/color][/i]", "no, i don\'t think i will . . .")
+text = PackedStringArray("they look like they are having fun", "i kind of want to join them . . .", "You should!", "[i][color=#bbbbbb]should i?[/color][/i]", "no, i don\'t think i will . . .")
 
 [node name="Door" parent="." unique_id=624367828 instance=ExtResource("5_5nanq")]
+visible = false
 offset_left = 493.0
 offset_top = 142.0
 offset_right = 1008.20325
@@ -237,6 +353,7 @@ offset_bottom = 575.0
 
 [node name="ChoiceWindow" type="Sprite2D" parent="." unique_id=2035747907]
 visible = false
+z_index = 2
 position = Vector2(1116.0001, 299)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("6_3vq54")
