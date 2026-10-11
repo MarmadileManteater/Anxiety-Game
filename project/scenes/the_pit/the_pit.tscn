@@ -327,13 +327,13 @@ autoplay = "early"
 position = Vector2(94, -249)
 sprite_frames = SubResource("SpriteFrames_6wcjf")
 autoplay = "default"
-frame_progress = 0.49439085
+frame_progress = 0.90806764
 
 [node name="Bassists" type="AnimatedSprite2D" parent="Drawing" unique_id=1693977462]
 position = Vector2(-91, -271)
 sprite_frames = SubResource("SpriteFrames_u4npt")
 autoplay = "default"
-frame_progress = 0.9365398
+frame_progress = 0.35021612
 
 [node name="Dancers" parent="." unique_id=213943213 instance=ExtResource("3_3cyfy")]
 visible = false

@@ -86,6 +86,7 @@ func _on_no_pressed() -> void:
 	, 2, self)
 
 func _on_yes_pressed() -> void:
+	disable_cursor_change.emit()
 	$Dialog.text[4] = "let's do this"
 	$Dialog.done.connect(
 		func ():
