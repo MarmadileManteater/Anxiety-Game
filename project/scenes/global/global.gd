@@ -73,7 +73,7 @@ func load_screen(screen_name: String, save_history: bool = true):
     instance.change_volume.connect(
         func(volume: float):
             $Resentment.volume_db = volume
-            $SoundCheck.volume_db = volume - 30
+            $SoundCheck.volume_db = volume - 10
     )
     add_child(instance)
     current_screen = instance
