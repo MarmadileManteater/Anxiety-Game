@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://6jrtm6qbaja"]
+
+[ext_resource type="Script" uid="uid://vqxqihlbubu7" path="res://scenes/default_screen/default_screen.gd" id="1_difci"]
+[ext_resource type="Texture2D" uid="uid://ib468gf2as43" path="res://assets/screens/computer.png" id="2_qt3pe"]
+
+[node name="Computer" type="Node2D" unique_id=1439792939]
+script = ExtResource("1_difci")
+metadata/_custom_type_script = "uid://vqxqihlbubu7"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=114116896]
+position = Vector2(685, 385)
+texture = ExtResource("2_qt3pe")

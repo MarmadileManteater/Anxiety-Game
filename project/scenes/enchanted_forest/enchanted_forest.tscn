@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dlobqf6sg6th6"]
+
+[ext_resource type="Script" uid="uid://vqxqihlbubu7" path="res://scenes/default_screen/default_screen.gd" id="1_hji7k"]
+[ext_resource type="Texture2D" uid="uid://dmwjfnt5pib7i" path="res://assets/screens/forest.png" id="2_6upnf"]
+
+[node name="EnchantedForest" type="Node2D" unique_id=1388811174]
+script = ExtResource("1_hji7k")
+metadata/_custom_type_script = "uid://vqxqihlbubu7"
+
+[node name="Drawing" type="Sprite2D" parent="." unique_id=199989124]
+position = Vector2(684, 384)
+texture = ExtResource("2_6upnf")

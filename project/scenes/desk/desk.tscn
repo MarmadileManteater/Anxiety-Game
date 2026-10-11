@@ -24,6 +24,17 @@ offset_right = 780.20325
 offset_bottom = 254.0
 screen_name = "looking_at_pit"
 
+[node name="Hallway" parent="." unique_id=2015081802 instance=ExtResource("4_2r18a")]
+offset_left = -15.0
+offset_top = -2.0
+offset_right = 388.0
+offset_bottom = 333.0
+direction = 2
+screen_name = "hallway"
+
 [connection signal="clicked" from="Door" to="." method="_on_zone_clicked"]
 [connection signal="mouseoff" from="Door" to="." method="_on_zone_mouseoff"]
 [connection signal="mouseover" from="Door" to="." method="_on_zone_mouseover"]
+[connection signal="clicked" from="Hallway" to="." method="_on_zone_clicked"]
+[connection signal="mouseoff" from="Hallway" to="." method="_on_zone_mouseoff"]
+[connection signal="mouseover" from="Hallway" to="." method="_on_zone_mouseover"]
