@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://ckyxxwa5kygcv" path="res://scenes/text_box/text_box.tscn" id="8_ht0q6"]
 [ext_resource type="Texture2D" uid="uid://n5q3o7nicgpq" path="res://assets/sprites/pointers/default.png" id="9_i54ly"]
 [ext_resource type="Texture2D" uid="uid://ckxr3ac5uv5fk" path="res://assets/sprites/fin.png" id="9_xsnr3"]
+[ext_resource type="AudioStream" uid="uid://dh700goyuyvit" path="res://assets/music/Sound Check.ogg" id="10_syux3"]
 [ext_resource type="Texture2D" uid="uid://dunx76ct1eohg" path="res://assets/sprites/pointers/point-up.png" id="10_xsnr3"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0dxmq"]
@@ -226,6 +227,9 @@ visible = false
 z_index = 100
 position = Vector2(669, 369)
 texture = ExtResource("9_xsnr3")
+
+[node name="SoundCheck" type="AudioStreamPlayer" parent="." unique_id=299050075]
+stream = ExtResource("10_syux3")
 
 [connection signal="mouse_exited" from="Button" to="." method="_on_button_exited"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

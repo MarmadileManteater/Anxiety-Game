@@ -11,10 +11,10 @@ func _ready() -> void:
 	change_volume.emit(0)
 	$Drawing.play(Helpers.stage_to_string(time))
 	if time != Helpers.Stage.Early:
-		play_music.emit()
+		$Drawing/Guitarist.show()
+		$Drawing/Bassists.show()
 		$Dancers.show()
 		$Door.show()
-		background_animation_player.play("modulate")
 		$Dancers.set_modulate_timestamp(background_animation_player.current_animation_position)
 		Helpers.set_interval(
 			func ():

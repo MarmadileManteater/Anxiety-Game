@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://bo4qgg2pud5rf"]
+
+[ext_resource type="Script" uid="uid://bsakedkljbr1" path="res://scenes/hallway/hallway.gd" id="1_8ww00"]
+[ext_resource type="Texture2D" uid="uid://behsd87vc663p" path="res://assets/screens/hallway.png" id="2_1u7ug"]
+[ext_resource type="PackedScene" uid="uid://bp3qljsfgqwsw" path="res://scenes/click_zone/click_zone.tscn" id="3_fe174"]
+
+[node name="Hallway" type="Node2D" unique_id=239645673]
+script = ExtResource("1_8ww00")
+metadata/_custom_type_script = "uid://vqxqihlbubu7"
+
+[node name="Drawing" type="Sprite2D" parent="." unique_id=116273818]
+position = Vector2(685, 385)
+texture = ExtResource("2_1u7ug")
+
+[node name="StatueDoor" parent="." unique_id=624367828 instance=ExtResource("3_fe174")]
+offset_left = 375.00003
+offset_top = -5.0000153
+offset_right = 521.35895
+offset_bottom = 428.0
+rotation = -0.12391838
+direction = 2
+screen_name = "statue_room"
+
+[node name="ForestDoor" parent="." unique_id=432331683 instance=ExtResource("3_fe174")]
+offset_left = 997.8724
+offset_top = 60.276627
+offset_right = 1307.4141
+offset_bottom = 698.3531
+rotation = 0.2443461
+direction = 3
+screen_name = "enchanted_forest"
+
+[node name="ComputerDoor" parent="." unique_id=1818077945 instance=ExtResource("3_fe174")]
+offset_left = 799.08514
+offset_top = -20.514776
+offset_right = 922.0734
+offset_bottom = 318.10712
+rotation = 0.2443461
+direction = 3
+screen_name = "computer"
+
+[connection signal="clicked" from="StatueDoor" to="." method="_on_zone_clicked"]
+[connection signal="mouseoff" from="StatueDoor" to="." method="_on_zone_mouseoff"]
+[connection signal="mouseover" from="StatueDoor" to="." method="_on_zone_mouseover"]
+[connection signal="clicked" from="ForestDoor" to="." method="_on_zone_clicked"]
+[connection signal="mouseoff" from="ForestDoor" to="." method="_on_zone_mouseoff"]
+[connection signal="mouseover" from="ForestDoor" to="." method="_on_zone_mouseover"]
+[connection signal="clicked" from="ComputerDoor" to="." method="_on_zone_clicked"]
+[connection signal="mouseoff" from="ComputerDoor" to="." method="_on_zone_mouseoff"]
+[connection signal="mouseover" from="ComputerDoor" to="." method="_on_zone_mouseover"]

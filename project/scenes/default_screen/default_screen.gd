@@ -11,6 +11,7 @@ signal next_screen
 signal disable_cursor_change
 signal enable_cursor_change
 signal save_state
+signal sound_check
 signal play_music
 signal change_volume
 
