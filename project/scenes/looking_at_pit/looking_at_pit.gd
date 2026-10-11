@@ -3,6 +3,7 @@ extends DefaultSceen
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	change_volume.emit(-5)
 	if not state.joyfriend_has_gone_pee:
 		disable_cursor_change.emit()
 		Helpers.set_timeout(

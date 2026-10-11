@@ -59,6 +59,15 @@ func load_screen(screen_name: String, save_history: bool = true):
 		func (given: GameState):
 			state = given
 	)
+	instance.play_music.connect(
+		func ():
+			if not $Resentment.playing:
+				$Resentment.play()
+	)
+	instance.change_volume.connect(
+		func(volume: float):
+			$Resentment.volume_db = volume
+	)
 	add_child(instance)
 	current_screen = instance
 

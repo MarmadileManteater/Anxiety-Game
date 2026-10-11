@@ -11,6 +11,8 @@ signal next_screen
 signal disable_cursor_change
 signal enable_cursor_change
 signal save_state
+signal play_music
+signal change_volume
 
 #set by global scene
 var time: Helpers.Stage

@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c80prrji3dhdo" path="res://assets/sprites/pointers/point-back.png" id="2_g0msn"]
 [ext_resource type="PackedScene" uid="uid://bp3qljsfgqwsw" path="res://scenes/click_zone/click_zone.tscn" id="2_syux3"]
 [ext_resource type="Texture2D" uid="uid://bjltrw3r44fhi" path="res://assets/sprites/pointers/point-left.png" id="4_pt2l8"]
+[ext_resource type="AudioStream" uid="uid://bbx1qcymihhhr" path="res://assets/music/Resentment.ogg" id="7_orsvi"]
 [ext_resource type="Texture2D" uid="uid://n5q3o7nicgpq" path="res://assets/sprites/pointers/default.png" id="9_i54ly"]
 [ext_resource type="Texture2D" uid="uid://dunx76ct1eohg" path="res://assets/sprites/pointers/point-up.png" id="10_xsnr3"]
 
@@ -165,6 +166,9 @@ scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_6wcjf")
 animation = &"up"
 autoplay = "default"
+
+[node name="Resentment" type="AudioStreamPlayer" parent="." unique_id=1172753163]
+stream = ExtResource("7_orsvi")
 
 [connection signal="mouse_exited" from="Button" to="." method="_on_button_exited"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

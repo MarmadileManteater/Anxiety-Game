@@ -3,6 +3,7 @@ extends DefaultSceen
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	change_volume.emit(-40)
 	if state.game_started:
 		$Curtain.hide()
 	else:

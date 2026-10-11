@@ -3,6 +3,7 @@ extends DefaultSceen
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	change_volume.emit(-10)
 	if not state.bracelet_obtained:
 		disable_cursor_change.emit()
 		Helpers.set_timeout(

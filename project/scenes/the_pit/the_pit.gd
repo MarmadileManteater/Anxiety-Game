@@ -7,8 +7,10 @@ var final_yes: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	change_volume.emit(0)
 	$Drawing.play(Helpers.stage_to_string(time))
 	if time != Helpers.Stage.Early:
+		play_music.emit()
 		$Dancers.show()
 		$Door.show()
 		background_animation_player.play("modulate")
@@ -17,7 +19,6 @@ func _ready() -> void:
 			func ():
 				$Dancers.set_modulate_timestamp(background_animation_player.current_animation_position)
 		, 1, self)
-		
 		
 func click_on_dancers() -> void:
 	if state.has_danced:
