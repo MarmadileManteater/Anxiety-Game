@@ -8,6 +8,7 @@ func _ready() -> void:
 		disable_cursor_change.emit()
 		Helpers.set_timeout(
 			func ():
+				sound_check.emit()
 				$Dialog.display()
 		, 1, self)
 		$Dialog.line_started.connect(

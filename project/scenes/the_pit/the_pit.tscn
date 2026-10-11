@@ -324,6 +324,7 @@ animation = &"middle"
 autoplay = "early"
 
 [node name="Guitarist" type="AnimatedSprite2D" parent="Drawing" unique_id=811851345]
+visible = false
 position = Vector2(94, -249)
 sprite_frames = SubResource("SpriteFrames_6wcjf")
 autoplay = "default"

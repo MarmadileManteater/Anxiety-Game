@@ -2,7 +2,7 @@ extends Node2D
 
 @export var start_screen: String = "the_pit"
 
-var time: Helpers.Stage = Helpers.Stage.Middle
+var time: Helpers.Stage = Helpers.Stage.Early
 var state: GameState = GameState.new()
 
 var current_screen: DefaultSceen
@@ -60,38 +60,20 @@ func load_screen(screen_name: String, save_history: bool = true):
         func (given: GameState):
             state = given
     )
-    instance.play_music.connect(
+    instance.sound_check.connect(
         func ():
-            if not $Resentment.playing:
-                $Resentment.play()
-                $Resentment.finished.connect(
-                    func():
-                        enable_cursor = false
-                        $Dialog.done.connect(
-                            func():
-                                $Curtain/AnimationPlayer.play("fade_in")
-                                $Curtain/AnimationPlayer.animation_finished.connect(
-                                    func(_name):
-                                        $FIN.show()
-                                        game_finished = true
-                                , ConnectFlags.CONNECT_ONE_SHOT)
-                        )
-                        $Dialog.line_started.connect(
-                            func(index: int):
-                                if index == 0:
-                                    $Dialog.set_title("joyfriend")
-                                if index == 1:
-                                    $Dialog.clear_title()
-                        )
-                        if state.has_danced:
-                            $Dialog.text[1] = "I agree."
-                        
-                        $Dialog.display()
+            if not $SoundCheck.playing:
+                $SoundCheck.play()
+                $SoundCheck.finished.connect(
+                    func ():
+                        play_music()
                 , ConnectFlags.CONNECT_ONE_SHOT)
     )
+    instance.play_music.connect(play_music, ConnectFlags.CONNECT_ONE_SHOT)
     instance.change_volume.connect(
         func(volume: float):
             $Resentment.volume_db = volume
+            $SoundCheck.volume_db = volume - 30
     )
     add_child(instance)
     current_screen = instance
@@ -121,3 +103,33 @@ func _on_back_mouseoff() -> void:
 func _on_back_mouseover(direction: Helpers.Direction) -> void:
     if screen_history.size() > 0:
         _on_mouse_direction_mouseover(direction)
+
+func play_music():
+    if not $Resentment.playing:
+        $Resentment.play()
+        time = Helpers.Stage.Middle
+        $Background/AnimationPlayer.play("modulate")
+        $Resentment.finished.connect(
+            func():
+                enable_cursor = false
+                $Dialog.done.connect(
+                    func():
+                        $Curtain/AnimationPlayer.play("fade_in")
+                        $Curtain/AnimationPlayer.animation_finished.connect(
+                            func(_name):
+                                $FIN.show()
+                                game_finished = true
+                        , ConnectFlags.CONNECT_ONE_SHOT)
+                )
+                $Dialog.line_started.connect(
+                    func(index: int):
+                        if index == 0:
+                            $Dialog.set_title("joyfriend")
+                        if index == 1:
+                            $Dialog.clear_title()
+                )
+                if state.has_danced:
+                    $Dialog.text[1] = "I agree."
+                
+                $Dialog.display()
+        )
