@@ -63,6 +63,25 @@ func load_screen(screen_name: String, save_history: bool = true):
 		func ():
 			if not $Resentment.playing:
 				$Resentment.play()
+				$Resentment.finished.connect(
+					func():
+						enable_cursor = false
+						$Dialog.done.connect(
+							func():
+								$Curtain/AnimationPlayer.play("fade_in")
+						)
+						$Dialog.line_started.connect(
+							func(index: int):
+								if index == 0:
+									$Dialog.set_title("joyfriend")
+								if index == 1:
+									$Dialog.clear_title()
+						)
+						if state.has_danced:
+							$Dialog.text[1] = "I agree."
+						
+						$Dialog.display()
+				, ConnectFlags.CONNECT_ONE_SHOT)
 	)
 	instance.change_volume.connect(
 		func(volume: float):
