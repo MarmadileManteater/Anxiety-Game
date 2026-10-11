@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b5fa1ulrxwsjw"
+path="res://.godot/imported/Car SFX - In Car w Music.ogg-17091cde38b1fb131964f0a03924157d.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sfx/Car SFX - In Car w Music.ogg"
+dest_files=["res://.godot/imported/Car SFX - In Car w Music.ogg-17091cde38b1fb131964f0a03924157d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -21,13 +21,16 @@ func _ready() -> void:
 		)
 		$Dialog.done.connect(
 			func ():
-				Helpers.set_timeout(
-					func ():
+				$Car.stop()
+				$OutOfCar.play()
+				$OutOfCar.finished.connect(
+					func():
 						$Curtain/AnimationPlayer.play("fade")
 						enable_cursor_change.emit()
 						state.game_started = true
 						save()
-				, 1, self)
+				, ConnectFlags.CONNECT_ONE_SHOT)
+
 		, ConnectFlags.CONNECT_ONE_SHOT)
 
 func _on_clicked() -> void:

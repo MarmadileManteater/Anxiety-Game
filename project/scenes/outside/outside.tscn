@@ -5,7 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://bybma16sshihy" path="res://assets/sprites/objects/flame.png" id="3_qbnsr"]
 [ext_resource type="PackedScene" uid="uid://ckyxxwa5kygcv" path="res://scenes/text_box/text_box.tscn" id="4_7fvn1"]
 [ext_resource type="PackedScene" uid="uid://bp3qljsfgqwsw" path="res://scenes/click_zone/click_zone.tscn" id="5_7fvn1"]
-[ext_resource type="AudioStream" uid="uid://c2bau0jnmnlqi" path="res://assets/effects/Car SFX - In Car w Music.wav" id="6_7jduf"]
+[ext_resource type="AudioStream" uid="uid://b5fa1ulrxwsjw" path="res://assets/sfx/Car SFX - In Car w Music.ogg" id="6_7jduf"]
+[ext_resource type="AudioStream" uid="uid://clsoop8lc6qo5" path="res://assets/sfx/Car SFX - Out of Car.ogg" id="7_albt5"]
 
 [sub_resource type="Animation" id="Animation_ile57"]
 length = 0.001
@@ -118,6 +119,9 @@ screen_name = "desk"
 
 [node name="Car" type="AudioStreamPlayer" parent="." unique_id=757932843]
 stream = ExtResource("6_7jduf")
+
+[node name="OutOfCar" type="AudioStreamPlayer" parent="." unique_id=1435577340]
+stream = ExtResource("7_albt5")
 
 [connection signal="clicked" from="Door" to="." method="_on_zone_clicked"]
 [connection signal="mouseoff" from="Door" to="." method="_on_zone_mouseoff"]
