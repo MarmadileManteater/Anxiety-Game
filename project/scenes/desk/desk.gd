@@ -1,5 +1,6 @@
 extends DefaultSceen
 
+var dialog = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -40,7 +41,9 @@ func shows_over():
 	super()
 	$Dialog.hide()
 	$Dialog.queue_free()
+	dialog = false
 
 func _on_clicked() -> void:
 	super()
-	$Dialog.progress()
+	if dialog:
+		$Dialog.progress()
