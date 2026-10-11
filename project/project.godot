@@ -13,6 +13,7 @@ config_version=5
 config/name="Anxietys"
 run/main_scene="uid://cw0v5sjejsb14"
 config/features=PackedStringArray("4.7", "GL Compatibility")
+boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/stretch_mode=0
 boot_splash/image="uid://bmtsgce1wbole"
 config/icon="uid://bmtsgce1wbole"
