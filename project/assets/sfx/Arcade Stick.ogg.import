@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cksc4v64vevht"
+path="res://.godot/imported/Arcade Stick.ogg-18c7e24ded63b226ab7090d4968c76af.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sfx/Arcade Stick.ogg"
+dest_files=["res://.godot/imported/Arcade Stick.ogg-18c7e24ded63b226ab7090d4968c76af.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

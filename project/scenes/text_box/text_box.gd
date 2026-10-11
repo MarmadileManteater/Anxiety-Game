@@ -8,6 +8,8 @@ signal done
 @export var text: PackedStringArray
 @export var title: String
 
+const tones = {"": 1.2, "joyfriend": 1.25, "some human": 2, "another human": 1.1 }
+
 var sprite: AnimatedSprite2D
 var label: RichTextLabel
 var label_animation_player: AnimationPlayer
@@ -63,6 +65,7 @@ func set_title(given: String = "", popup: bool = true) -> void:
 	else:
 		label_animation_player.play("no_title")
 		title_sprite.hide()
+	$Chirp.pitch_scale = tones[title]
 
 func clear_title() -> void:
 	set_title()
@@ -74,6 +77,7 @@ func typewriter(text: String) -> void:
 """)
 	typewriter_interval = Helpers.set_interval(
 		func ():
+			$Chirp.play()
 			var string_part = current_line.substr(0, 1)
 			if string_part.contains("["):
 				while not string_part.ends_with("]"):

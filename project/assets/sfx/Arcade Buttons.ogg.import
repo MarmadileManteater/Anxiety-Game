@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://d0k2rvaaituqd"
+path="res://.godot/imported/Arcade Buttons.ogg-ce235fa3a74d7cff6e4d7b81c109ba4a.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sfx/Arcade Buttons.ogg"
+dest_files=["res://.godot/imported/Arcade Buttons.ogg-ce235fa3a74d7cff6e4d7b81c109ba4a.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

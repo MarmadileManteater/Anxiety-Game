@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://6bfb20rrswnl" path="res://assets/sprites/text-box/1.png" id="4_lgus7"]
 [ext_resource type="Texture2D" uid="uid://yhd7a4o6fexe" path="res://assets/sprites/text-box/arrow.png" id="5_wg0r1"]
 [ext_resource type="Texture2D" uid="uid://c80n1i65rcgec" path="res://assets/sprites/text-box/title.png" id="6_o50fc"]
+[ext_resource type="AudioStream" uid="uid://b3f1plh5clb8q" path="res://assets/sfx/Speech.ogg" id="7_20bxf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i54ly"]
 atlas = ExtResource("2_20bxf")
@@ -205,6 +206,10 @@ bbcode_enabled = true
 text = "some dude"
 scroll_active = false
 horizontal_alignment = 1
+
+[node name="Chirp" type="AudioStreamPlayer" parent="." unique_id=1505256531]
+stream = ExtResource("7_20bxf")
+volume_db = -12.0
 
 [connection signal="gui_input" from="Label" to="." method="_on_gui_input"]
 [connection signal="gui_input" from="Label" to="." method="_on_label_gui_input"]

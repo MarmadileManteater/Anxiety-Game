@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://v8l1nnmnp6fg"
+path="res://.godot/imported/Arcade SFX 3.ogg-267d074b3bcc85e955daeb57c69ebb67.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sfx/Arcade SFX 3.ogg"
+dest_files=["res://.godot/imported/Arcade SFX 3.ogg-267d074b3bcc85e955daeb57c69ebb67.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
