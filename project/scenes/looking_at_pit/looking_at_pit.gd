@@ -4,7 +4,7 @@ extends DefaultSceen
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	change_volume.emit(-5)
-	if not state.joyfriend_has_gone_pee:
+	if not state.joyfriend_has_gone_pee and time == Helpers.Stage.Early:
 		disable_cursor_change.emit()
 		Helpers.set_timeout(
 			func ():
@@ -68,5 +68,17 @@ func _ready() -> void:
 				, 0.1, self)
 		, ConnectFlags.CONNECT_ONE_SHOT)
 		
+func update_time(_time):
+	$Bandmate.hide()
+	$Dialog.hide()
+	$Dialog.queue_free()
+	enable_cursor_change.emit()
+		
+func shows_over():
+	super()
+	$Dialog.hide()
+	$Dialog.queue_free()
+		
 func _on_clicked() -> void:
+	super()
 	$Dialog.progress()

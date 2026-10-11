@@ -36,5 +36,11 @@ func _ready() -> void:
 				, 0.1, self)
 		, ConnectFlags.CONNECT_ONE_SHOT)
 
+func shows_over():
+	super()
+	$Dialog.hide()
+	$Dialog.queue_free()
+
 func _on_clicked() -> void:
+	super()
 	$Dialog.progress()

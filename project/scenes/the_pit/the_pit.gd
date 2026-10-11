@@ -9,6 +9,14 @@ var lock_dancers: bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	change_volume.emit(0)
+	update_time(time)
+
+func shows_over():
+	super()
+	$ChoiceWindow.hide()
+	$Dialog.hide()
+
+func update_time(time: Helpers.Stage) -> void:
 	$Drawing.play(Helpers.stage_to_string(time))
 	if time != Helpers.Stage.Early:
 		$Drawing/Guitarist.show()
@@ -43,6 +51,7 @@ func click_on_dancers() -> void:
 		$Dialog.progress()
 		
 func _on_clicked() -> void:
+	super()
 	$Dialog.progress()
 
 func _yes_entered() -> void:

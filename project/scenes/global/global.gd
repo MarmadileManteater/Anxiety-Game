@@ -103,15 +103,21 @@ func _on_back_mouseoff() -> void:
 func _on_back_mouseover(direction: Helpers.Direction) -> void:
     if screen_history.size() > 0:
         _on_mouse_direction_mouseover(direction)
-
+ 
 func play_music():
     if not $Resentment.playing:
         $Resentment.play()
         time = Helpers.Stage.Middle
+        current_screen.update_time(time)
         $Background/AnimationPlayer.play("modulate")
         $Resentment.finished.connect(
             func():
                 enable_cursor = false
+                current_screen.shows_over()
+                current_screen.button_pressed.connect(
+                    func():
+                        $Dialog.progress()
+                )
                 $Dialog.done.connect(
                     func():
                         $Curtain/AnimationPlayer.play("fade_in")
@@ -128,8 +134,31 @@ func play_music():
                         if index == 1:
                             $Dialog.clear_title()
                 )
-                if state.has_danced:
-                    $Dialog.text[1] = "I agree."
+                var points = state.are_they_satisfied()
+                if points == -1:
+                    $Dialog.text[0] = "Well, that was a bummer. We didn't even get in the door."
+                    $Dialog.text[1] = ". . . sorry"
+                    
+                if points == 0:
+                    $Dialog.text[0] = "I never got to look around, but at least, the show was good."
+                    if state.has_danced:
+                        $Dialog.text[1] = "I am glad I came."
+                    else:
+                        $Dialog.text[1] = ". . . sure"
+                    
+                if points == 1 or points == 2:
+                    $Dialog.text[0] = "I had a good time."
+                    if state.has_danced:
+                        $Dialog.text[1] = "I am glad I came."
+                    else:
+                        $Dialog.text[1] = ". . . sure"
+                    
+                if points == 3:
+                    $Dialog.text[0] = "I had a fantastic time."
+                    if state.has_danced:
+                        $Dialog.text[1] = "I am glad I came."
+                    else:
+                        $Dialog.text[1] = ". . . sure"
                 
                 $Dialog.display()
         )

@@ -35,4 +35,5 @@ func _ready() -> void:
 		, ConnectFlags.CONNECT_ONE_SHOT)
 
 func _on_clicked() -> void:
+	super()
 	$Dialog.progress()

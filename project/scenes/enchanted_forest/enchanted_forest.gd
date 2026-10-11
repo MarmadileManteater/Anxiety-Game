@@ -30,10 +30,15 @@ func _ready() -> void:
 				, 0.1, self)
 		, ConnectFlags.CONNECT_ONE_SHOT)
 
+func shows_over():
+	super()
+	$Dialog.hide()
+	$Dialog.queue_free()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
 func _on_clicked() -> void:
+	super()
 	$Dialog.progress()
